@@ -32,7 +32,7 @@ After cloning the code one will need to install npm, inquirer, mysql2, and conso
 
 ## Usage
 
-You will need to install npm from your terminal; gitbash on windows or from right here in vs code
+Small example of what the tables in the sql files should be based off of. 
 
 ![example](./images/12-sql-homework-demo-01.png)
 
