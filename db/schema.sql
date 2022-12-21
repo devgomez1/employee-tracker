@@ -26,5 +26,5 @@ CREATE TABLE employees (
     role_id VARCHAR(50) NOT NULL,
     salary DECIMAL NOT NULL,
     department VARCHAR(50) NOT NULL,
-    manger_id VARCHAR (50) NULL
+    manager VARCHAR (50) NULL
 );
