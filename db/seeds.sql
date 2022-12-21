@@ -1,7 +1,18 @@
-INSERT INTO departments (name)
+USE companyTracker_db;
+
+INSERT INTO departments (department_name)
 VALUES 
     ('EMPLOYEE SERVICES'),
     ('SALES'),
     ('CORPORATE'),
-    ('HUMAN RESOURCE'),
+    ('HUMAN RESOURCES'),
     ('MARKETING');
+
+INSERT INTO roles (title, salary, department)
+VALUES 
+    ('SALES MANAGER', 150000, 'SALES')
+    ('JUNIOR SALES PERSON', 50000, 'SALES')
+    ('CEO', 500000, 'CORPORATE')
+    ('CFO', 400000, 'CORPORATE')
+    ('MARKETING DIRECTOR', 200000, 'MARKETING')
+    ('HEALTH AND WELLNESS DIRECTOR', 75000, 'HUMAN RESOURCES')
