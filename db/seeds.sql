@@ -18,10 +18,10 @@ VALUES
     ('MARKETING ASSISTANT', 100000, 'MARKETING'),
     ('HEALTH AND WELLNESS DIRECTOR', 75000, 'HUMAN RESOURCES');
 
-INSERT INTO employees (first_name, last_name, role_id, salary, department, manager)
+INSERT INTO employees (first_name, last_name, role_title, salary, department, manager)
 VALUES
-    ('DEVIN', 'GOMEZ', 'CEO', 500000, 'CORPORATE', null),
-    ('KEVIN', 'HART', 'CFO', 400000, 'CORPORATE', null),
+    ('DEVIN', 'GOMEZ', '3', 500000, 'CORPORATE', null),
+    ('KEVIN', 'HART', '4', 400000, 'CORPORATE', null),
     ('DWAYNE', 'JOHNSON', 'SALES MANAGER', 150000, 'SALES', 'DEVIN GOMEZ'),
     ('CHRISTIAN', 'BALE', 'JUNIOR SALES PERSON', 50000, 'SALES', 'DWAYNE JOHNSON'),
     ('LEWIS', 'HAMILTON', 'JUNIOR SALES PERSON', 50000, 'SALES', 'DWAYNE JOHNSON'),
