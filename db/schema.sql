@@ -23,6 +23,7 @@ CREATE TABLE employees (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
-    role_id INT NOT NULL,
+    role_id VARCHAR(50) NOT NULL,
+    salary DECIMAL NOT NULL,
     manger_id VARCHAR (50) NULL
 )
