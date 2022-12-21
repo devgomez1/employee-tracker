@@ -1,4 +1,4 @@
-USE companyTracker_db;
+USE company_db;
 
 INSERT INTO departments (department_name)
 VALUES 
