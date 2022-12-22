@@ -12,7 +12,7 @@ async function startDatabase() {
    const answers = await inquirer.prompt([
     {
         type: 'list',
-        message: 'WELCOME TO THE COMPANY TRACKER',
+        message: 'COMPANY TRACKER',
         name: 'prompt',
         choices: ['VIEW DEPARTMENTS', 'VIEW ROLES', 'VIEW EMPLOYEES', 'ADD A DEPARTMENT', 'ADD A ROLE', 'ADD AN EMPLOYEE', 'FINISHED']
         
@@ -26,9 +26,11 @@ async function startDatabase() {
             break;
         case 'VIEW ROLES': 
             console.log('VIEWING ALL ROLES');
+            displayRoles();
             break;
         case 'VIEW EMPLOYEES': 
             console.log('VIEWING ALL EMPLOYEES');
+            displayEmployees();
             break;
         case 'ADD A DEPARTMENT': 
             console.log('ADDING DEPARTMENT');
@@ -48,8 +50,24 @@ async function startDatabase() {
 
 
 function displayDepartments() {
-    sql.query("SELECT * FROM departments", function (error, res) {
-        console.table(res);
+    sql.query("SELECT * FROM departments", function (error, data) {
+        console.table(data);
+        startDatabase();
+    });
+};
+
+
+function displayRoles() {
+    sql.query("SELECT * FROM roles", function (error, data) {
+        console.table(data);
+        startDatabase();
+    });
+};
+
+
+function displayEmployees() {
+    sql.query("SELECT * FROM employees", function (error, data) {
+        console.table(data);
         startDatabase();
     });
 };
