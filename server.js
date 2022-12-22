@@ -1,7 +1,7 @@
 
 const inquirer = require('inquirer');
-const sql = require('./db/mysql')
-const consTable = require('console.table')
+const sql = require('./db/mysql');
+const consTable = require('console.table');
 
 sql.connect(function (error) {
     if (error) throw error;
@@ -19,8 +19,7 @@ function startDatabase() {
             'VIEW EMPLOYEES',
             'ADD A DEPARTMENT',
             'ADD A ROLE',
-            'ADD AN EMPLOYEE',
-            'UPDATE EMPLOYEE ROLE',
+            'ADD AN EMPLOYEE'
         ]
     })
 }
