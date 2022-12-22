@@ -4,7 +4,7 @@ const sql = require('./db/mysql');
 const consTable = require('console.table');
 
 sql.connect(function (error) {
-    if (error) throw error;
+    if (error) console.log(error);
     startDatabase();
 })
 
@@ -21,5 +21,16 @@ function startDatabase() {
             'ADD A ROLE',
             'ADD AN EMPLOYEE'
         ]
+        
     })
 }
+   
+
+function displayDepartments() {
+    sql.query("SELECT * FROM departments", function (error, res) {
+        console.table(res);
+        startDatabase();
+    });
+};
+
+displayDepartments();
