@@ -8,7 +8,7 @@ VALUES
     ('HUMAN RESOURCES'),
     ('MARKETING');
 
-INSERT INTO roles (title, salary, department)
+INSERT INTO roles (role_title, salary_number, department_id)
 VALUES 
     ('SALES MANAGER', 150000, 'SALES'),
     ('JUNIOR SALES PERSON', 50000, 'SALES'),
