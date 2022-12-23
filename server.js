@@ -41,6 +41,7 @@ async function startDatabase() {
             break;
         case 'ADD AN EMPLOYEE': 
             console.log('ADDING EMPLOYEE');
+            newEmployee();
             break;
         case 'FINISHED': 
             console.log('ENDING DATABASE');
@@ -84,11 +85,81 @@ function newDepartment() {
             department_name: data.departmentTitle
         }, function(error, result) {
             if (error) {
-                throw (error)
+                console.log(error)
             } else {
-                startDatabase();
                 console.log("ADDED NEW DEPARTMENT");
+                startDatabase();
             }
         });
 })
     };
+
+function newEmployee() {
+        inquirer.prompt([{
+            type: 'input',
+            name: 'first',
+            message: 'WHAT IS THE EMPLOYEES FIRST NAME?',
+        },
+        {
+            type: 'input',
+            name: 'last',
+            message: 'WHAT IS THE EMPLOYEES LAST NAME?',
+        },
+        {
+            type: 'input',
+            name: 'role',
+            message: 'WHAT IS THEIR ROLE?',
+        },
+        {
+            type: 'input',
+            name: 'salary',
+            message: 'WHAT IS THEIR SALARY?',
+        },
+        {
+            type: 'input',
+            name: 'department',
+            message: 'WHAT DEPARTMENT ARE THEY IN?',
+        },
+        {
+            type: 'input',
+            name: 'manager',
+            message: 'WHOS THEIR MANAGER?',
+        }
+
+        ]).then(function (data) {
+            sql.query("INSERT INTO employees SET ?", {
+                first_name: data.first,
+                last_name: data.last,
+                role_title: data.role,
+                salary_number: data.salary,
+                department_id: data.department,
+                manager_id: data.manager
+            }, function(error, result) {
+                if (error) {
+                    console.log(error)
+                } else {
+                    console.log("ADDED NEW EMPLOYEE");
+                    startDatabase();
+                }
+            });
+    })
+        };
+
+ function newRole() {
+            inquirer.prompt([{
+                type: 'input',
+                name: 'departmentTitle',
+                message: 'WHAT IS THE TITLE OF THE NEW DEPARTMENT',
+            }]).then(function (data) {
+                sql.query("INSERT INTO departments SET ?", {
+                    department_name: data.departmentTitle
+                }, function(error, result) {
+                    if (error) {
+                        console.log(error)
+                    } else {
+                        console.log("ADDED NEW DEPARTMENT");
+                        startDatabase();
+                    }
+                });
+        })
+            };

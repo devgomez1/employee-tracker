@@ -24,7 +24,7 @@ CREATE TABLE employees (
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     role_title VARCHAR(50) NOT NULL,
-    salary DECIMAL NOT NULL,
-    department VARCHAR(50) NOT NULL,
-    manager VARCHAR (50) NULL
+    salary_number DECIMAL NOT NULL,
+    department_id VARCHAR(50) NOT NULL,
+    manager_id VARCHAR (50) NULL
 );
