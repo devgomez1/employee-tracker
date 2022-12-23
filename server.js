@@ -3,8 +3,8 @@ const inquirer = require('inquirer');
 const sql = require('./db/mysql');
 const consTable = require('console.table');
 
-sql.connect(function (error) {
-    if (error) console.log(error);
+sql.connect((err) => {
+    if (err) console.log(err);
     startDatabase();
 })
 
@@ -54,33 +54,35 @@ async function startDatabase() {
 
 
 function displayDepartments() {
-    sql.query("SELECT * FROM departments", function (error, data) {
+    sql.query("SELECT * FROM departments", (err, data) => {
         console.table(data);
         startDatabase();
     });
 };
 
 function newDepartment() {
-    inquirer.prompt([{
-        type: 'input',
-        name: 'departmentTitle',
-        message: 'WHAT IS THE TITLE OF THE NEW DEPARTMENT',
-    }]).then(function (data) {
-        sql.query("INSERT INTO departments SET ?", {
-            department_name: data.departmentTitle
-        }, function(error, result) {
-            if (error) {
-                console.log(error)
-            } else {
-                console.log("ADDED NEW DEPARTMENT");
-                startDatabase();
-            }
+        inquirer.prompt([{
+            type: 'input',
+            name: 'departmentTitle',
+            message: 'WHAT IS THE TITLE OF THE NEW DEPARTMENT',
+        }
+
+        ]).then((input) => {
+            sql.query("INSERT INTO departments SET ?", {
+                department_name: input.departmentTitle
+            }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    console.log("ADDED NEW DEPARTMENT");
+                    startDatabase();
+                }
+            });
         });
-})
     };
 
 function displayRoles() {
-    sql.query("SELECT * FROM roles", function (error, data) {
+    sql.query("SELECT * FROM roles", (error, data) => {
         console.table(data);
         startDatabase();
     });
@@ -103,24 +105,24 @@ function newRole() {
             message: 'WHAT DEPARTMENT DOES THE ROLE BELONG TO',
         },
 
-        ]).then(function (data) {
+        ]).then((input) => {
             sql.query("INSERT INTO roles SET ?", {
-                role_title: data.role,
-                salary_number: data.salary,
-                department_id: data.department
-        }, function(error, result) {
-            if (error) {
-                console.log(error)
-            } else {
-                console.log("ADDED NEW ROLE");
-                startDatabase();
-            }
+                role_title: input.role,
+                salary_number: input.salary,
+                department_id: input.department
+            }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    console.log("ADDED NEW ROLE");
+                    startDatabase();
+                }
+            });
         });
-    });
-};
+    };
 
 function displayEmployees() {
-    sql.query("SELECT * FROM employees", function (error, data) {
+    sql.query("SELECT * FROM employees", (err, data) => {
         console.table(data);
         startDatabase();
     });
@@ -158,17 +160,17 @@ function newEmployee() {
             message: 'WHOS THEIR MANAGER?',
         }
 
-        ]).then(function (data) {
+        ]).then((input) => {
             sql.query("INSERT INTO employees SET ?", {
-                first_name: data.first,
-                last_name: data.last,
-                role_title: data.role,
-                salary_number: data.salary,
-                department_id: data.department,
-                manager_id: data.manager
-            }, function(error, result) {
-                if (error) {
-                    console.log(error)
+                first_name: input.first,
+                last_name: input.last,
+                role_title: input.role,
+                salary_number: input.salary,
+                department_id: input.department,
+                manager_id: input.manager
+            }, (err, result) => {
+                if (err) {
+                    console.log(err)
                 } else {
                     console.log("ADDED NEW EMPLOYEE");
                     startDatabase();
