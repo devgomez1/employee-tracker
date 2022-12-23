@@ -109,7 +109,7 @@ function newRole() {
             sql.query("INSERT INTO roles SET ?", {
                 role_title: input.role,
                 salary_number: input.salary,
-                department_id: input.department
+                department_name: input.department
             }, (err, result) => {
                 if (err) {
                     console.log(err)
@@ -166,8 +166,8 @@ function newEmployee() {
                 last_name: input.last,
                 role_title: input.role,
                 salary_number: input.salary,
-                department_id: input.department,
-                manager_id: input.manager
+                department_name: input.department,
+                manager_name: input.manager
             }, (err, result) => {
                 if (err) {
                     console.log(err)

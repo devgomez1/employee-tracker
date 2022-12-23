@@ -16,7 +16,7 @@ CREATE TABLE roles (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     role_title VARCHAR(50) NOT NULL,
     salary_number DECIMAL NOT NULL,
-    department_id VARCHAR(50) NOT NULL
+    department_name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE employees (
@@ -25,6 +25,6 @@ CREATE TABLE employees (
     last_name VARCHAR(50) NOT NULL,
     role_title VARCHAR(50) NOT NULL,
     salary_number DECIMAL NOT NULL,
-    department_id VARCHAR(50) NOT NULL,
-    manager_id VARCHAR (50) NULL
+    department_name VARCHAR(50) NOT NULL,
+    manager_name VARCHAR (50) NOT NULL
 );

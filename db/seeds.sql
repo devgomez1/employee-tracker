@@ -8,7 +8,7 @@ VALUES
     ('HUMAN RESOURCES'),
     ('MARKETING');
 
-INSERT INTO roles (role_title, salary_number, department_id)
+INSERT INTO roles (role_title, salary_number, department_name)
 VALUES 
     ('SALES MANAGER', 150000, 'SALES'),
     ('JUNIOR SALES PERSON', 50000, 'SALES'),
@@ -18,10 +18,10 @@ VALUES
     ('MARKETING ASSISTANT', 100000, 'MARKETING'),
     ('HEALTH DIRECTOR', 75000, 'HUMAN RESOURCES');
 
-INSERT INTO employees (first_name, last_name, role_title, salary_number, department_id, manager_id)
+INSERT INTO employees (first_name, last_name, role_title, salary_number, department_name, manager_name)
 VALUES
-    ('DEVIN', 'GOMEZ', 'CEO', 500000, 'CORPORATE', null),
-    ('KEVIN', 'HART', 'CFO', 400000, 'CORPORATE', null),
+    ('DEVIN', 'GOMEZ', 'CEO', 500000, 'CORPORATE', 'NONE'),
+    ('KEVIN', 'HART', 'CFO', 400000, 'CORPORATE', 'NONE'),
     ('DWAYNE', 'JOHNSON', 'SALES MANAGER', 150000, 'SALES', 'DEVIN GOMEZ'),
     ('CHRISTIAN', 'BALE', 'SALES PERSON', 50000, 'SALES', 'DWAYNE JOHNSON'),
     ('LEWIS', 'HAMILTON', 'SALES PERSON', 50000, 'SALES', 'DWAYNE JOHNSON'),
@@ -29,4 +29,4 @@ VALUES
     ('SERGIO', 'PEREZ', 'MARKETING ASSISTANT', 100000, 'MARKETING', 'SEBASTIAN VETTLE'),
     ('OSCAR', 'PIASTRY', 'SALES PERSON', 50000, 'SALES', 'DWAYNE JOHNSON'),
     ('RUTH', 'CHRIS', 'HEALTH DIRECTOR', 75000, 'HUMAN RESOURCES', 'KEVIN HART'),
-    ('SUGE', 'KNIGHT', 'CFO', 400000, 'CORPORATE', null);
+    ('SUGE', 'KNIGHT', 'CFO', 400000, 'CORPORATE', 'NONE');
