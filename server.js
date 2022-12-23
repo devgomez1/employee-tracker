@@ -34,6 +34,7 @@ async function startDatabase() {
             break;
         case 'ADD A DEPARTMENT': 
             console.log('ADDING DEPARTMENT');
+            newDepartment();
             break;
         case 'ADD A ROLE': 
             console.log('ADDING ROLE');
@@ -43,6 +44,7 @@ async function startDatabase() {
             break;
         case 'FINISHED': 
             console.log('ENDING DATABASE');
+            sql.end();
             break;
     }   
 };
@@ -71,3 +73,22 @@ function displayEmployees() {
         startDatabase();
     });
 };
+
+function newDepartment() {
+    inquirer.prompt([{
+        type: 'input',
+        name: 'departmentTitle',
+        message: 'WHAT IS THE TITLE OF THE NEW DEPARTMENT',
+    }]).then(function (data) {
+        sql.query("INSERT INTO departments SET ?", {
+            department_name: data.departmentTitle
+        }, function(error, result) {
+            if (error) {
+                throw (error)
+            } else {
+                startDatabase();
+                console.log("ADDED NEW DEPARTMENT");
+            }
+        });
+})
+    };
