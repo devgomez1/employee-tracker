@@ -22,5 +22,8 @@
     "inquirer": "^8.0.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.30.0"
   }
 }
